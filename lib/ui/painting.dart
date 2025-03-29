@@ -3689,6 +3689,7 @@ base class _ColorFilter extends NativeFieldWrapperClass1 {
   external void _initSrgbToLinearGamma();
 }
 
+@pragma('vm:entry-point')
 class SetHdr {
   @pragma('vm:entry-point')
   SetHdr({ this.hdr = 0, this.is_image = true }) {
@@ -3699,6 +3700,7 @@ class SetHdr {
   bool is_image = true;
 }
 
+@pragma('vm:entry-point')
 base class _SetHdr extends NativeFieldWrapperClass1 {
   _SetHdr ({ required this.hdr, required this.is_image }) {
     _constructor();

@@ -3689,9 +3689,10 @@ base class _ColorFilter extends NativeFieldWrapperClass1 {
   external void _initSrgbToLinearGamma();
 }
 
-class setHdr {
-  setHdr(this.hdr, this.is_image) {
-    _SetHdr(hdr, is_image);
+class SetHdr {
+  @pragma('vm:entry-point')
+  SetHdr({ this.hdr = 0, this.is_image = true }) {
+    _SetHdr(hdr:hdr, is_image:is_image);
   }
 
   int hdr = 0;
@@ -3699,14 +3700,18 @@ class setHdr {
 }
 
 base class _SetHdr extends NativeFieldWrapperClass1 {
-  _SetHdr(this.hdr, this.is_image) {
+  _SetHdr ({ required this.hdr, required this.is_image }) {
+    _constructor();
     _initSetHdr(hdr, is_image);
   }
 
   int hdr = 0;
   bool is_image = true;
 
-  @Native<Void Function(Pointer<Void>, Int32, Bool)>(symbol: 'ImageFilter::initSetHdr')
+  @Native<Void Function(Handle)>(symbol: 'SetHdr::Create')
+  external void _constructor();
+
+  @Native<Void Function(Pointer<Void>, Int32, Bool)>(symbol: 'SetHdr::initSetHdr')
   external void _initSetHdr(int hdr, bool is_image);
 }
 
